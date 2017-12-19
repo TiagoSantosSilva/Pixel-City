@@ -13,9 +13,15 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    var locationManager = CLLocationManager()
+    let authorizationStatus = CLLocationManager.authorizationStatus()
+    let regionRadius: Double = 1000
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        locationManager.delegate = self
+        configureLocationServices()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
