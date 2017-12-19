@@ -31,7 +31,9 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func centerMapButtonTapped(_ sender: Any) {
+        if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
+            centerMapOnUserLocation()
+        }
     }
-    
 }
 
