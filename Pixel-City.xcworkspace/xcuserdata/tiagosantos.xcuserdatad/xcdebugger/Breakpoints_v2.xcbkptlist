@@ -6,15 +6,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pixel-City/Controllers/MapViewController.swift"
-            timestampString = "535387988.217452"
+            timestampString = "535574005.776055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "centerMapButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>

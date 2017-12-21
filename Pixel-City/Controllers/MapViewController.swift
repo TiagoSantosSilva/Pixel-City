@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -22,6 +22,7 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         locationManager.delegate = self
         configureLocationServices()
+        addDoubleTap()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -29,11 +30,22 @@ class MapViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func addDoubleTap() {
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(dropPin))
+        doubleTap.numberOfTapsRequired = 2
+        doubleTap.delegate = self
+        mapView.addGestureRecognizer(doubleTap)
+    }
 
     @IBAction func centerMapButtonTapped(_ sender: Any) {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
             centerMapOnUserLocation()
         }
+    }
+    
+    @objc func dropPin() {
+        print("Pin was dropped!")
     }
 }
 
