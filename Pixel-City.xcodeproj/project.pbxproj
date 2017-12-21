@@ -14,6 +14,7 @@
 		271665171FE9309F008BA565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 271665161FE9309F008BA565 /* Assets.xcassets */; };
 		2716651A1FE9309F008BA565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271665181FE9309F008BA565 /* LaunchScreen.storyboard */; };
 		271665291FE94094008BA565 /* MapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271665281FE94094008BA565 /* MapViewControllerExtension.swift */; };
+		27C6ABC91FEC397C001EF123 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6ABC81FEC397C001EF123 /* DroppablePin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		271665191FE9309F008BA565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2716651B1FE9309F008BA565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		271665281FE94094008BA565 /* MapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerExtension.swift; sourceTree = "<group>"; };
+		27C6ABC81FEC397C001EF123 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		B10FEACED3DD0921874A5DCF /* Pods_Pixel_City.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pixel_City.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA496CA8056CB42288D850D4 /* Pods-Pixel-City.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixel-City.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pixel-City/Pods-Pixel-City.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 		271665231FE93151008BA565 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				27C6ABC81FEC397C001EF123 /* DroppablePin.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				271665121FE9309F008BA565 /* MapViewController.swift in Sources */,
+				27C6ABC91FEC397C001EF123 /* DroppablePin.swift in Sources */,
 				271665291FE94094008BA565 /* MapViewControllerExtension.swift in Sources */,
 				271665101FE9309F008BA565 /* AppDelegate.swift in Sources */,
 			);
