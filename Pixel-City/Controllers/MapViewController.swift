@@ -37,6 +37,12 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         doubleTap.delegate = self
         mapView.addGestureRecognizer(doubleTap)
     }
+    
+    func removePin() {
+        for annotation in mapView.annotations {
+            mapView.removeAnnotation(annotation)
+        }
+    }
 
     @IBAction func centerMapButtonTapped(_ sender: Any) {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
@@ -45,6 +51,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func dropPin(sender: UITapGestureRecognizer) {
+        removePin()
         let touchPoint = sender.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
