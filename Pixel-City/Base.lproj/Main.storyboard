@@ -67,7 +67,7 @@
                                 </constraints>
                                 <state key="normal" image="locationButton"/>
                                 <connections>
-                                    <action selector="centerMapBtnWasPressed:" destination="1m3-Rp-uqA" eventType="touchUpInside" id="thm-NN-G5d"/>
+                                    <action selector="centerMapButtonTapped:" destination="1m3-Rp-uqA" eventType="touchUpInside" id="vmW-h3-nV1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -91,6 +91,7 @@
                     <connections>
                         <outlet property="mapView" destination="M1U-wG-ogr" id="sKR-di-2gA"/>
                         <outlet property="pullUpView" destination="FAY-lJ-a8R" id="NIS-Sw-u4s"/>
+                        <outlet property="pullUpViewHeightConstraint" destination="fyX-CV-56l" id="9mW-2h-VQG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZp-3Y-ohk" userLabel="First Responder" sceneMemberID="firstResponder"/>
