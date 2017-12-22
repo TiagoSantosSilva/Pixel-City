@@ -15,6 +15,8 @@
 		2716651A1FE9309F008BA565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271665181FE9309F008BA565 /* LaunchScreen.storyboard */; };
 		271665291FE94094008BA565 /* MapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271665281FE94094008BA565 /* MapViewControllerExtension.swift */; };
 		2760E8851FEDA70400E15ACF /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760E8841FEDA70400E15ACF /* AppService.swift */; };
+		2760E8881FEDC14100E15ACF /* PopImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760E8861FEDC14100E15ACF /* PopImageViewController.swift */; };
+		2760E8891FEDC14100E15ACF /* PopImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2760E8871FEDC14100E15ACF /* PopImageViewController.xib */; };
 		27C6ABC91FEC397C001EF123 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6ABC81FEC397C001EF123 /* DroppablePin.swift */; };
 		27D28FA71FED5C270070577D /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D28FA61FED5C270070577D /* PhotoCell.swift */; };
 		27D28FAC1FED6A250070577D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D28FAB1FED6A250070577D /* Constants.swift */; };
@@ -32,6 +34,8 @@
 		2716651B1FE9309F008BA565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		271665281FE94094008BA565 /* MapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerExtension.swift; sourceTree = "<group>"; };
 		2760E8841FEDA70400E15ACF /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		2760E8861FEDC14100E15ACF /* PopImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopImageViewController.swift; sourceTree = "<group>"; };
+		2760E8871FEDC14100E15ACF /* PopImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopImageViewController.xib; sourceTree = "<group>"; };
 		27C6ABC81FEC397C001EF123 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		27D28FA61FED5C270070577D /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		27D28FAB1FED6A250070577D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 		2716650E1FE9309F008BA565 /* Pixel-City */ = {
 			isa = PBXGroup;
 			children = (
+				2760E88A1FEDC14700E15ACF /* XIBs */,
 				27F53D291FED98E500B920D1 /* Services */,
 				27D28FAA1FED6A1A0070577D /* Helpers */,
 				271665241FE9315D008BA565 /* Controllers */,
@@ -116,8 +121,17 @@
 			isa = PBXGroup;
 			children = (
 				271665111FE9309F008BA565 /* MapViewController.swift */,
+				2760E8861FEDC14100E15ACF /* PopImageViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2760E88A1FEDC14700E15ACF /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				2760E8871FEDC14100E15ACF /* PopImageViewController.xib */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		27D28FAA1FED6A1A0070577D /* Helpers */ = {
@@ -216,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2760E8891FEDC14100E15ACF /* PopImageViewController.xib in Resources */,
 				2716651A1FE9309F008BA565 /* LaunchScreen.storyboard in Resources */,
 				271665171FE9309F008BA565 /* Assets.xcassets in Resources */,
 				271665151FE9309F008BA565 /* Main.storyboard in Resources */,
@@ -279,6 +294,7 @@
 			files = (
 				27F53D2B1FED98F100B920D1 /* PhotoService.swift in Sources */,
 				2760E8851FEDA70400E15ACF /* AppService.swift in Sources */,
+				2760E8881FEDC14100E15ACF /* PopImageViewController.swift in Sources */,
 				271665121FE9309F008BA565 /* MapViewController.swift in Sources */,
 				27D28FA71FED5C270070577D /* PhotoCell.swift in Sources */,
 				27C6ABC91FEC397C001EF123 /* DroppablePin.swift in Sources */,
