@@ -17,11 +17,16 @@ class PopImageViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         popImageView.image = passedImage
-        addDoubleTapToDismiss()
+        addDismissFunctions()
     }
     
     func initData(forImage image: UIImage) {
         self.passedImage = image
+    }
+    
+    func addDismissFunctions() {
+        addDoubleTapToDismiss()
+        addSlideDownToDismiss()
     }
     
     func addDoubleTapToDismiss() {
@@ -29,6 +34,13 @@ class PopImageViewController: UIViewController, UIGestureRecognizerDelegate {
         doubleTap.numberOfTapsRequired = 2
         doubleTap.delegate = self
         view.addGestureRecognizer(doubleTap)
+    }
+    
+    func addSlideDownToDismiss() {
+        let slideDown = UISwipeGestureRecognizer(target: self, action: #selector(dismissViewController))
+        slideDown.direction = .down
+        slideDown.delegate = self
+        view.addGestureRecognizer(slideDown)
     }
     
     @objc func dismissViewController() {

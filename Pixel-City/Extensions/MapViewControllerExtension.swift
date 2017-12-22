@@ -61,11 +61,28 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // 🔶 Would be used if the Pop View Controller was in the storyboard the Map View Controller belongs to.
+        // 🔶 Would be used if the Pop View Controller was in the storyboard the Map View Controller belongs to. 🔶
         // guard let popViewController = storyboard?.instantiateViewController(withIdentifier: "PopViewController") as? PopImageViewController else { return }
         
         let popImageViewController = PopImageViewController()
         popImageViewController.initData(forImage: imageArray![indexPath.row])
         present(popImageViewController, animated: true, completion: nil)
+    }
+}
+
+extension MapViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = collectionView?.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView?.cellForItem(at: indexPath) else { return nil }
+        
+        let popImageViewController = PopImageViewController()
+        popImageViewController.initData(forImage: imageArray![indexPath.row])
+        
+        previewingContext.sourceRect = cell.contentView.frame
+        return popImageViewController
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
     }
 }
