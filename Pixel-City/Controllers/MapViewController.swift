@@ -24,6 +24,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var screenSize = UIScreen.main.bounds
     
+    var flowLayout: UICollectionViewFlowLayout?
     var collectionView: UICollectionView?
     
     override func viewDidLoad() {
@@ -32,12 +33,25 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         locationManager.delegate = self
         configureLocationServices()
         addDoubleTapGestureRecognizer()
+        initializeCollectionView()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func initializeCollectionView() {
+        flowLayout = UICollectionViewFlowLayout()
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout!)
+        collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: "photoCell")
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        collectionView?.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        
+        pullUpView.addSubview(collectionView!)
     }
     
     func addDoubleTapGestureRecognizer() {
@@ -76,7 +90,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         spinner?.activityIndicatorViewStyle = .whiteLarge
         spinner?.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         spinner?.startAnimating()
-        pullUpView.addSubview(spinner!)
+        collectionView?.addSubview(spinner!)
     }
     
     func removeSpinner() {
@@ -100,7 +114,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         progressLabel?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         progressLabel?.textAlignment = .center
         progressLabel?.text = "12/40 PHOTOS LOADED"
-        pullUpView.addSubview(progressLabel!)
+        collectionView?.addSubview(progressLabel!)
     }
     
     func removeProgressLabel() {
