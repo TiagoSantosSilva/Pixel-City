@@ -58,7 +58,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCellReuseIdentifier)
         collectionView?.delegate = self
         collectionView?.dataSource = self
-        collectionView?.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        collectionView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         pullUpView.addSubview(collectionView!)
     }
@@ -119,7 +119,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         removeProgressLabel()
         
         progressLabel = UILabel()
-        progressLabel?.frame = CGRect(x: (screenSize.width / 2) - 120, y: 175, width: 240, height: 40)
+        progressLabel?.frame = CGRect(x: (screenSize.width / 2) - 140, y: 175, width: 280, height: 40)
         progressLabel?.font = UIFont(name: "Avenir", size: 18)
         progressLabel?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         progressLabel?.textAlignment = .center
@@ -138,6 +138,12 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    func clearCollectionView() {
+        self.imageArray = []
+        self.imageArraySize = 0
+        collectionView?.reloadData()
+    }
+    
     @objc func dropPin(sender: UITapGestureRecognizer) {
         appService?.cancelAllSesions()
         removePin()
@@ -145,6 +151,8 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         addSwipeGestureRecognizer()
         addSpiner()
         addProgressLabel()
+        
+        clearCollectionView()
         
         let touchPoint = sender.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
