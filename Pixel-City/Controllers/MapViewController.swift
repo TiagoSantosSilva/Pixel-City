@@ -159,15 +159,19 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         imageUrlArray = []
         
         Alamofire.request(flickrUrl(forApiKey: FlickrApiKey, withAnnotation: annotation, andNumberOfPhotos: 40)).responseJSON { (response) in
-            guard let json = response.result.value as? JSON else { return }
-            guard let photoDictionary = json["photos"] as? JSON else { return }
-            guard let photos = photoDictionary["photo"] as? [JSON] else { return }
-            
-            for photo in photos {
-                let postUrl = "https://farm\(photo["farm"]!).staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_h_d.jpg"
-                self.imageUrlArray.append(postUrl)
-            }
+            self.appendUrlsToImageArray(response: response)
             handler(true)
+        }
+    }
+    
+    func appendUrlsToImageArray(response: DataResponse<Any>) {
+        guard let json = response.result.value as? JSON else { return }
+        guard let photoDictionary = json["photos"] as? JSON else { return }
+        guard let photos = photoDictionary["photo"] as? [JSON] else { return }
+        
+        for photo in photos {
+            let postUrl = "https://farm\(photo["farm"]!).staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_h_d.jpg"
+            self.imageUrlArray.append(postUrl)
         }
     }
 }
