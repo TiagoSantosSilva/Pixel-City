@@ -21,7 +21,7 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
-        let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "droppablePin")
+        let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: DroppablePinReuseIdentifier)
         pinAnnotation.pinTintColor = #colorLiteral(red: 0.9771530032, green: 0.7062081099, blue: 0.1748393774, alpha: 1)
         pinAnnotation.animatesDrop = true
         return pinAnnotation

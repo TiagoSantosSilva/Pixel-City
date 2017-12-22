@@ -46,7 +46,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     func initializeCollectionView() {
         flowLayout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout!)
-        collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: "photoCell")
+        collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCellReuseIdentifier)
         collectionView?.delegate = self
         collectionView?.dataSource = self
         collectionView?.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
@@ -139,7 +139,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         let touchPoint = sender.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
-        let annotation = DroppablePin(coordinate: touchCoordinate, identifier: "droppablePin")
+        let annotation = DroppablePin(coordinate: touchCoordinate, identifier: DroppablePinReuseIdentifier)
         mapView.addAnnotation(annotation)
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(touchCoordinate, regionRadius * 2.0, regionRadius * 2.0)

@@ -18,7 +18,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCellReuseIdentifier, for: indexPath) as? PhotoCell
         return cell!
     }
 }

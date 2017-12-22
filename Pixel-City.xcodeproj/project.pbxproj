@@ -17,6 +17,7 @@
 		27C6ABC91FEC397C001EF123 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C6ABC81FEC397C001EF123 /* DroppablePin.swift */; };
 		27D28FA71FED5C270070577D /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D28FA61FED5C270070577D /* PhotoCell.swift */; };
 		27D28FA91FED5CAF0070577D /* MapCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D28FA81FED5CAF0070577D /* MapCellExtension.swift */; };
+		27D28FAC1FED6A250070577D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D28FAB1FED6A250070577D /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		27C6ABC81FEC397C001EF123 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		27D28FA61FED5C270070577D /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		27D28FA81FED5CAF0070577D /* MapCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCellExtension.swift; sourceTree = "<group>"; };
+		27D28FAB1FED6A250070577D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B10FEACED3DD0921874A5DCF /* Pods_Pixel_City.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pixel_City.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA496CA8056CB42288D850D4 /* Pods-Pixel-City.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixel-City.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pixel-City/Pods-Pixel-City.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 		2716650E1FE9309F008BA565 /* Pixel-City */ = {
 			isa = PBXGroup;
 			children = (
+				27D28FAA1FED6A1A0070577D /* Helpers */,
 				271665241FE9315D008BA565 /* Controllers */,
 				271665231FE93151008BA565 /* Views */,
 				271665221FE93149008BA565 /* Extensions */,
@@ -113,6 +116,14 @@
 				271665111FE9309F008BA565 /* MapViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		27D28FAA1FED6A1A0070577D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				27D28FAB1FED6A250070577D /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		5325950484EDC56989DBD141 /* Frameworks */ = {
@@ -259,6 +270,7 @@
 				27D28FA71FED5C270070577D /* PhotoCell.swift in Sources */,
 				27D28FA91FED5CAF0070577D /* MapCellExtension.swift in Sources */,
 				27C6ABC91FEC397C001EF123 /* DroppablePin.swift in Sources */,
+				27D28FAC1FED6A250070577D /* Constants.swift in Sources */,
 				271665291FE94094008BA565 /* MapViewControllerExtension.swift in Sources */,
 				271665101FE9309F008BA565 /* AppDelegate.swift in Sources */,
 			);
