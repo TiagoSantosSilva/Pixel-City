@@ -24,6 +24,8 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var screenSize = UIScreen.main.bounds
     
+    var collectionView: UICollectionView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -67,17 +69,43 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func addSpiner() {
+        removeSpinner()
+        
         spinner = UIActivityIndicatorView()
-        spinner?.center = CGPoint(x: (screenSize.width / 2) - ((spinner?.frame.width)! / 2), y: 150) // Change 150 to dynamic property
+        spinner?.center = CGPoint(x: (screenSize.width / 2) - ((spinner?.frame.width)! / 2), y: pullUpViewHeightConstraint.constant / 2) // TODO: Change 150 to dynamic property
         spinner?.activityIndicatorViewStyle = .whiteLarge
         spinner?.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         spinner?.startAnimating()
         pullUpView.addSubview(spinner!)
     }
     
+    func removeSpinner() {
+        if spinner != nil {
+            spinner?.removeFromSuperview()
+        }
+    }
+    
     func removePin() {
         for annotation in mapView.annotations {
             mapView.removeAnnotation(annotation)
+        }
+    }
+    
+    func addProgressLabel() {
+        removeProgressLabel()
+        
+        progressLabel = UILabel()
+        progressLabel?.frame = CGRect(x: (screenSize.width / 2) - 120, y: 175, width: 240, height: 40)
+        progressLabel?.font = UIFont(name: "Avenir", size: 18)
+        progressLabel?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        progressLabel?.textAlignment = .center
+        progressLabel?.text = "12/40 PHOTOS LOADED"
+        pullUpView.addSubview(progressLabel!)
+    }
+    
+    func removeProgressLabel() {
+        if progressLabel != nil {
+            progressLabel?.removeFromSuperview()
         }
     }
     
@@ -92,6 +120,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         animateViewUp()
         addSwipeGestureRecognizer()
         addSpiner()
+        addProgressLabel()
         
         let touchPoint = sender.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
