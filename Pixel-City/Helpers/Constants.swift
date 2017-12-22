@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias JSON = [String: AnyObject]
+
 let FlickrApiKey = "c649831ffb6122070cdde91bcdcfedf0"
 let DroppablePinReuseIdentifier = "droppablePin"
 let PhotoCellReuseIdentifier = "photoCell"
