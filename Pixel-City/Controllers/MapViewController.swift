@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
 
 class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -25,14 +26,19 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var screenSize = UIScreen.main.bounds
     
-    var flowLayout: UICollectionViewFlowLayout?
+    var flowLayout =  UICollectionViewFlowLayout()
     var collectionView: UICollectionView?
     
     var photoService: PhotoService?
+    var appService: AppService?
+    
+    var imageArraySize: Int?
+    var imageArray: [UIImage]?
     
     override func viewDidLoad() {
-        photoService = PhotoService()
         super.viewDidLoad()
+        photoService = PhotoService()
+        appService = AppService()
         mapView.delegate = self
         locationManager.delegate = self
         configureLocationServices()
@@ -48,8 +54,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func initializeCollectionView() {
-        flowLayout = UICollectionViewFlowLayout()
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout!)
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
         collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCellReuseIdentifier)
         collectionView?.delegate = self
         collectionView?.dataSource = self
@@ -72,6 +77,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func animateViewDown() {
+        appService?.cancelAllSesions()
         animateView(constant: 0)
     }
     
@@ -117,7 +123,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         progressLabel?.font = UIFont(name: "Avenir", size: 18)
         progressLabel?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         progressLabel?.textAlignment = .center
-        progressLabel?.text = "12/40 PHOTOS LOADED"
         collectionView?.addSubview(progressLabel!)
     }
     
@@ -134,6 +139,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func dropPin(sender: UITapGestureRecognizer) {
+        appService?.cancelAllSesions()
         removePin()
         animateViewUp()
         addSwipeGestureRecognizer()
@@ -150,7 +156,15 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
         
         photoService?.retrieveUrls(forAnnotation: annotation, handler: { (photoUrls) in
-            print(photoUrls)
+            if photoUrls.count != 0 {
+                self.photoService?.retrieveImages(imageUrlArray: photoUrls, progressLabel: self.progressLabel!, handler: { (imageArray) in
+                    self.imageArraySize = imageArray.count
+                    self.imageArray = imageArray
+                    self.removeSpinner()
+                    self.removeProgressLabel()
+                    self.collectionView?.reloadData()
+                })
+            }
         })
     }
 }

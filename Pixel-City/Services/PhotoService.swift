@@ -19,8 +19,20 @@ class PhotoService {
         }
     }
     
-    func retrieveImages(handler: @escaping (_ status: Bool) -> ()) {
+    func retrieveImages(imageUrlArray: [String], progressLabel: UILabel, handler: @escaping (_ imageArray: [UIImage]) -> ()) {
+        var imageArray = [UIImage]()
         
+        for url in imageUrlArray {
+            Alamofire.request(url).responseImage(completionHandler: { (response) in
+                guard let image = response.result.value else { return }
+                imageArray.append(image)
+                progressLabel.text = "\(imageArray.count)/\(imageUrlArray.count) IMAGES DOWNLOADED"
+                
+                if imageArray.count == imageUrlArray.count {
+                    handler(imageArray)
+                }
+            })
+        }
     }
     
     func appendUrlsToImageArray(response: DataResponse<Any>) -> [String] {
