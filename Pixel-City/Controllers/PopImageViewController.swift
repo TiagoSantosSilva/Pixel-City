@@ -12,14 +12,14 @@ class PopImageViewController: UIViewController {
 
     @IBOutlet weak var popImageView: UIImageView!
     
+    var passedImage: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        popImageView.image = passedImage
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func initData(forImage image: UIImage) {
+        self.passedImage = image
     }
 }

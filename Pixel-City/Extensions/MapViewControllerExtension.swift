@@ -59,4 +59,13 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.addSubview(imageView)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 🔶 Would be used if the Pop View Controller was in the storyboard the Map View Controller belongs to.
+        // guard let popViewController = storyboard?.instantiateViewController(withIdentifier: "PopViewController") as? PopImageViewController else { return }
+        
+        let popImageViewController = PopImageViewController()
+        popImageViewController.initData(forImage: imageArray![indexPath.row])
+        present(popImageViewController, animated: true, completion: nil)
+    }
 }
