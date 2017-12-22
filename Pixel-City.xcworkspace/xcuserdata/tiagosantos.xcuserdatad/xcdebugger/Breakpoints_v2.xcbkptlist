@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pixel-City/Controllers/MapViewController.swift"
-            timestampString = "535576496.071388"
+            timestampString = "535640708.102588"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "centerMapButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
